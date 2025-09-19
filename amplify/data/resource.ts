@@ -4,8 +4,8 @@ const schema = a.schema({
   // User's mood assessment
   MoodAssessment: a
     .model({
-      mood: a.string(), // "happy", "excited", "relaxed", "sad"
-      timestamp: a.timestamp().default(() => new Date().toISOString()),
+      mood: a.string(),
+      timestamp: a.timestamp(),
     })
     .authorization((allow) => [allow.owner()]),
     
@@ -26,7 +26,7 @@ const schema = a.schema({
       movieId: a.string(),
       movieTitle: a.string(),
       userRating: a.integer(),
-      watched: a.boolean().default(false),
+      watched: a.boolean(),
     })
     .authorization((allow) => [allow.owner()]),
 });
